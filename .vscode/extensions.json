@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "rangav.vscode-thunder-client",
+    "editorconfig.editorconfig",
+    "irongeek.vscode-env",
+    "dbaeumer.vscode-eslint",
+    "prisma.prisma",
+    "orta.vscode-jest",
+    "oderwat.indent-rainbow",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
