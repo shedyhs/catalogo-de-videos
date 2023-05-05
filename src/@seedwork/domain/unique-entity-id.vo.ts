@@ -4,6 +4,7 @@ import { InvalidUuidError } from '../errors/invalid-uuid.error';
 export class UniqueEntityId {
   constructor(public readonly value?: string) {
     this.value = value || randomUUID();
+    this.validate();
   }
 
   validate() {

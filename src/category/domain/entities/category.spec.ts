@@ -76,7 +76,6 @@ describe('Category Unit Test', () => {
     test('getter and setter of is_active field', () => {
       const category = new Category({ name: 'Movie' });
       expect(category.is_active).toBeTruthy();
-
       category.is_active = false;
       expect(category.is_active).toBeFalsy();
     });
