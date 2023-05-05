@@ -1,4 +1,4 @@
-@startuml
+@startuml Category_usecases
 
 :Admin: -> (Criar categoria)
 :Admin: -> (Atualizar categoria)
