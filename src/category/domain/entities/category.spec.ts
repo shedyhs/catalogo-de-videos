@@ -1,4 +1,5 @@
 import { omit } from 'lodash';
+import { UniqueEntityId } from '../../../@seedwork/domain/unique-entity-id.vo';
 import { Category } from './category';
 
 describe('Category Unit Test', () => {
@@ -6,7 +7,6 @@ describe('Category Unit Test', () => {
     test('create category with only required fields', () => {
       const category = new Category({ name: 'Movie' });
       const props = omit(category.props, ['created_at', 'updated_at']);
-
       expect(props).toStrictEqual({
         name: 'Movie',
         description: null,
@@ -26,7 +26,6 @@ describe('Category Unit Test', () => {
         created_at,
         updated_at,
       });
-
       expect(category.props).toStrictEqual({
         name: 'Movie',
         description: 'some description',
@@ -41,23 +40,17 @@ describe('Category Unit Test', () => {
     test('id field must auto generate if not receive value', () => {
       const uuidRegex =
         /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
       const category = new Category({ name: 'Movie' });
-
       expect(category.id).not.toBeNull();
-      expect(uuidRegex.test(category.id)).toBeTruthy();
+      expect(uuidRegex.test(category.id.value)).toBeTruthy();
     });
 
-    test('id field need to retain value received', () => {
+    test('id field need to retain received value', () => {
+      const id = new UniqueEntityId('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
       const uuidRegex =
         /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
-      const category = new Category(
-        { name: 'Movie' },
-        '5604300b-1ff3-4c73-ac03-134ab51fbbdc',
-      );
-
-      expect(uuidRegex.test(category.id)).toBeTruthy();
+      const category = new Category({ name: 'Movie' }, id);
+      expect(uuidRegex.test(category.id.value)).toBeTruthy();
     });
   });
 
