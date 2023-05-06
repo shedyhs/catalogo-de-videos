@@ -38,7 +38,8 @@
 				"jebbs.plantuml",
 				"esbenp.prettier-vscode",
 				"Prisma.prisma",
-				"yoavbls.pretty-ts-errors"
+				"yoavbls.pretty-ts-errors",
+        "eamodio.gitlens"
 			]
 		}
 	}
