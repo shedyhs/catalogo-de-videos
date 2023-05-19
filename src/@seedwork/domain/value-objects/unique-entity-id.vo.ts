@@ -1,9 +1,10 @@
 import { randomUUID } from 'crypto';
-import { InvalidUuidError } from '../errors/invalid-uuid.error';
+import { InvalidUuidError } from '../../errors/invalid-uuid.error';
+import { ValueObject } from './value-object';
 
-export class UniqueEntityId {
-  constructor(public readonly value?: string) {
-    this.value = value || randomUUID();
+export class UniqueEntityId extends ValueObject<string> {
+  constructor(readonly id?: string) {
+    super(id || randomUUID());
     this.validate();
   }
 

@@ -1,5 +1,5 @@
 import { UniqueEntityId } from './unique-entity-id.vo';
-import { InvalidUuidError } from '../errors/invalid-uuid.error';
+import { InvalidUuidError } from '../../errors/invalid-uuid.error';
 
 describe('Unique Entity Id Unit Test', () => {
   const validateSpy = jest.spyOn(
@@ -25,13 +25,13 @@ describe('Unique Entity Id Unit Test', () => {
 
   test('retain received value', () => {
     const id = new UniqueEntityId('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
-    expect(id.value).toBe('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
+    expect(id.id).toBe('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
   });
 
   test('verify if retained value is a valid UUID', () => {
     const id = new UniqueEntityId('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
     expect(validateSpy).toHaveBeenCalledTimes(1);
-    expect(id.value).toBe('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
+    expect(id.id).toBe('5604300b-1ff3-4c73-ac03-134ab51fbbdc');
   });
 
   test('throw an InvalidUuidError if received value is not valid Uuid', () => {
