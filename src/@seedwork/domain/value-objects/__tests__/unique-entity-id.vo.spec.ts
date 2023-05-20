@@ -1,5 +1,5 @@
-import { UniqueEntityId } from './unique-entity-id.vo';
-import { InvalidUuidError } from '../../errors/invalid-uuid.error';
+import { UniqueEntityId } from '../unique-entity-id.vo';
+import { InvalidUuidError } from '../../../errors/invalid-uuid.error';
 
 describe('Unique Entity Id Unit Test', () => {
   const validateSpy = jest.spyOn(

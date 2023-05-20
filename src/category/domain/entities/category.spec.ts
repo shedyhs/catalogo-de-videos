@@ -41,8 +41,8 @@ describe('Category Unit Test', () => {
       const uuidRegex =
         /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
       const category = new Category({ name: 'Movie' });
-      expect(category.id).not.toBeNull();
-      expect(uuidRegex.test(category.id.value)).toBeTruthy();
+      expect(category.uniqueEntityId).not.toBeNull();
+      expect(uuidRegex.test(category.uniqueEntityId.value)).toBeTruthy();
     });
 
     test('id field need to retain received value', () => {
@@ -50,7 +50,7 @@ describe('Category Unit Test', () => {
       const uuidRegex =
         /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
       const category = new Category({ name: 'Movie' }, id);
-      expect(uuidRegex.test(category.id.value)).toBeTruthy();
+      expect(uuidRegex.test(category.uniqueEntityId.value)).toBeTruthy();
     });
   });
 

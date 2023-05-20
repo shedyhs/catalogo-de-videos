@@ -1,4 +1,5 @@
-import { ValueObject } from './value-object';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ValueObject } from '../value-object';
 
 class StubValueObject extends ValueObject {}
 
