@@ -1,4 +1,4 @@
-import { Prettify } from '../utils/prettify-interface';
+import { Legible } from '../utils/legible-interface';
 import { UniqueEntityId } from '../value-objects/unique-entity-id.vo';
 
 export abstract class Entity<Props> {
@@ -12,7 +12,7 @@ export abstract class Entity<Props> {
     return this.uniqueEntityId.value;
   }
 
-  toJSON(): Prettify<Required<{ id: string } & Props>> {
+  toJSON(): Legible<Required<{ id: string } & Props>> {
     return {
       id: this.id,
       ...this.props,
