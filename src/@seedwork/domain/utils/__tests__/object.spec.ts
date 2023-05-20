@@ -1,4 +1,4 @@
-import { deepFreeze } from './object';
+import { deepFreeze } from '../object';
 
 describe('Object Unit Test', () => {
   it('should not freeze a scalar value', () => {
