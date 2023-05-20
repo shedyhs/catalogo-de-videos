@@ -12,6 +12,7 @@ describe('ValueObject Unit Test', () => {
     const vo = new StubValueObject({ ok: true });
     expect(vo.value).toStrictEqual({ ok: true });
   });
+
   describe('should convert to a string', () => {
     const date = new Date();
     const arrange = [
@@ -36,5 +37,27 @@ describe('ValueObject Unit Test', () => {
         expect(`${vo}`).toBe(expected);
       },
     );
+  });
+
+  it('should be a immutable object', () => {
+    const obj = {
+      shallow: 'value',
+      deep: { primitive: 'value', object: new Date() },
+    };
+    const vo = new StubValueObject(obj);
+
+    expect(() => {
+      (vo as any).value.shallow = 'another value';
+    }).toThrow(
+      "Cannot assign to read only property 'shallow' of object '#<Object>'",
+    );
+
+    expect(() => {
+      (vo as any).value.deep.primitive = 'another primitive value';
+    }).toThrow(
+      "Cannot assign to read only property 'primitive' of object '#<Object>'",
+    );
+
+    expect(vo.value.deep.object).toBeInstanceOf(Date);
   });
 });
