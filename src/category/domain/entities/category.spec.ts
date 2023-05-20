@@ -90,4 +90,49 @@ describe('Category Unit Test', () => {
       expect(category.updated_at).toBeInstanceOf(Date);
     });
   });
+
+  it('update method', () => {
+    const oldDate = new Date().getTime() - 1000;
+    const category = new Category({
+      name: 'name',
+      description: 'some description',
+      created_at: new Date(oldDate),
+      updated_at: new Date(oldDate),
+    });
+    const oldUpdate = category.updated_at.getTime();
+    category.update('another name', 'another description');
+    expect(category.name).toBe('another name');
+    expect(category.description).toBe('another description');
+    expect(category.updated_at.getTime()).toBeGreaterThan(oldUpdate);
+  });
+
+  it('activate method', () => {
+    const oldDate = new Date().getTime() - 1000;
+    const category = new Category({
+      name: 'name',
+      description: 'some description',
+      is_active: false,
+      created_at: new Date(oldDate),
+      updated_at: new Date(oldDate),
+    });
+    const oldUpdate = category.updated_at.getTime();
+    category.activate();
+    expect(category.is_active).toBeTruthy();
+    expect(category.updated_at.getTime()).toBeGreaterThan(oldUpdate);
+  });
+
+  it('deactivate method', () => {
+    const oldDate = new Date().getTime() - 1000;
+    const category = new Category({
+      name: 'name',
+      description: 'some description',
+      is_active: true,
+      created_at: new Date(oldDate),
+      updated_at: new Date(oldDate),
+    });
+    const oldUpdate = category.updated_at.getTime();
+    category.deactivate();
+    expect(category.is_active).toBeFalsy();
+    expect(category.updated_at.getTime()).toBeGreaterThan(oldUpdate);
+  });
 });
