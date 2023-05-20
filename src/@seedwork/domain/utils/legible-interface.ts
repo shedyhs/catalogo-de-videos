@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-export type Prettify<Type> = {
+export type Legible<Type> = {
   [Key in keyof Type]: Type[Key];
 } & {};
