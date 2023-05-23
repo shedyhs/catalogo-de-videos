@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable radix */
 /* eslint-disable no-restricted-globals */
-import { Entity } from '../entities/entity';
+import { Entity as AbstractEntity } from '../entities/entity';
+import { Legible } from '../utils/legible-interface';
 import { UniqueEntityId } from '../value-objects/unique-entity-id.vo';
 
-export interface RepositoryInterface<E extends Entity> {
-  insert(entity: E): Promise<void>;
-  findById(id: string | UniqueEntityId): Promise<E>;
-  findAll(): Promise<E[]>;
-  update(entity: E): Promise<void>;
+export interface RepositoryInterface<Entity extends AbstractEntity> {
+  insert(entity: Entity): Promise<void>;
+  findById(id: string | UniqueEntityId): Promise<Entity>;
+  findAll(): Promise<Entity[]>;
+  update(entity: Entity): Promise<void>;
   delete(id: string | UniqueEntityId): Promise<void>;
 }
 
@@ -93,8 +94,8 @@ export class SearchParams<Filter = string> {
   }
 }
 
-export type SearchResultProps<E extends Entity, Filter> = {
-  items: E[];
+export type SearchResultProps<Entity extends AbstractEntity, Filter> = {
+  items: Entity[];
   total: number;
   current_page: number;
   per_page: number;
@@ -103,8 +104,8 @@ export type SearchResultProps<E extends Entity, Filter> = {
   filter: Filter | null;
 };
 
-export class SearchResult<E extends Entity, Filter = string> {
-  readonly items: E[];
+export class SearchResult<Entity extends AbstractEntity, Filter = string> {
+  readonly items: Entity[];
   readonly total: number;
   readonly current_page: number;
   readonly per_page: number;
@@ -113,7 +114,7 @@ export class SearchResult<E extends Entity, Filter = string> {
   readonly sort_dir: SortDirection | null;
   readonly filter: Filter;
 
-  constructor(props: SearchResultProps<E, Filter>) {
+  constructor(props: SearchResultProps<Entity, Filter>) {
     this.items = props.items;
     this.total = props.total;
     this.current_page = props.current_page;
@@ -124,7 +125,7 @@ export class SearchResult<E extends Entity, Filter = string> {
     this.filter = props.filter;
   }
 
-  toJSON() {
+  toJSON(): Legible<SearchResultProps<Entity, Filter> & { last_page: number }> {
     return {
       items: this.items,
       total: this.total,
@@ -138,11 +139,11 @@ export class SearchResult<E extends Entity, Filter = string> {
   }
 }
 export interface SearchableRepositoryInterface<
-  E extends Entity,
+  Entity extends AbstractEntity,
   Filter = string,
   SearchInput = SearchParams,
-  SearchOutput = SearchResult<E, Filter>,
-> extends RepositoryInterface<E> {
+  SearchOutput = SearchResult<Entity, Filter>,
+> extends RepositoryInterface<Entity> {
   sortableFields: string[];
   search(props: SearchInput): Promise<SearchOutput>;
 }
