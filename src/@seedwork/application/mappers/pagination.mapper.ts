@@ -1,5 +1,5 @@
-import { Legible } from '../../domain/utils/legible-interface';
-import { SearchResult } from '../../domain/repositories/searchable-repository.contract';
+import { SearchResult } from '@seedwork/domain/repositories/searchable-repository.contract';
+import { Legible } from '@seedwork/domain/utils/legible-interface';
 import { PaginationOutput } from '../dto/pagination-output.dto';
 
 export class PaginationMapper {

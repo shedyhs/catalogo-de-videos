@@ -1,7 +1,7 @@
-import { CategoryMapper } from '../../mappers/category.mapper';
-import { Category } from '../../../domain/entities/category';
-import { SearchParams } from '../../../../@seedwork/domain/repositories/searchable-repository.contract';
-import { CategoryInMemoryRepository } from '../../../infra/category.in-memory.repository';
+import { SearchParams } from '@seedwork/domain/repositories/searchable-repository.contract';
+import { CategoryMapper } from 'category/application/mappers/category.mapper';
+import { Category } from 'category/domain/entities/category';
+import { CategoryInMemoryRepository } from 'category/infra/category.in-memory.repository';
 import { ListCategoriesUseCase } from '../list-categories.usecase';
 
 describe('ListCategoriesUseCase Unit Tests', () => {

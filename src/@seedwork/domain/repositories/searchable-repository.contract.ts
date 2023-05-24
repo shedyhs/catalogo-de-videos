@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable radix */
-import { Entity as AbstractEntity } from '../entities/entity';
+
+import { Entity } from '../entities/entity';
 import { Legible } from '../utils/legible-interface';
 import { IRepository } from './repository.contract';
 
@@ -82,8 +83,8 @@ export class SearchParams<Filter = string> {
   }
 }
 
-export type SearchResultProps<Entity extends AbstractEntity, Filter> = {
-  items: Entity[];
+export type SearchResultProps<E extends Entity, Filter> = {
+  items: E[];
   total: number;
   current_page: number;
   per_page: number;
@@ -91,11 +92,8 @@ export type SearchResultProps<Entity extends AbstractEntity, Filter> = {
   sort_dir: SortDirection | null;
   filter: Filter | null;
 };
-export class SearchResult<
-  Entity extends AbstractEntity = AbstractEntity,
-  Filter = string,
-> {
-  readonly items: Entity[];
+export class SearchResult<E extends Entity = Entity, Filter = string> {
+  readonly items: E[];
   readonly total: number;
   readonly current_page: number;
   readonly per_page: number;
@@ -103,7 +101,7 @@ export class SearchResult<
   readonly sort: string | null;
   readonly sort_dir: SortDirection | null;
   readonly filter: Filter;
-  constructor(props: SearchResultProps<Entity, Filter>) {
+  constructor(props: SearchResultProps<E, Filter>) {
     this.items = props.items;
     this.total = props.total;
     this.current_page = props.current_page;
@@ -113,7 +111,7 @@ export class SearchResult<
     this.sort_dir = props.sort_dir;
     this.filter = props.filter;
   }
-  toJSON(): Legible<SearchResultProps<Entity, Filter> & { last_page: number }> {
+  toJSON(): Legible<SearchResultProps<E, Filter> & { last_page: number }> {
     return {
       items: this.items,
       total: this.total,
@@ -127,11 +125,11 @@ export class SearchResult<
   }
 }
 export interface ISearchableRepository<
-  Entity extends AbstractEntity,
+  E extends Entity,
   Filter = string,
   SearchInput = SearchParams,
-  SearchOutput = SearchResult<Entity, Filter>,
-> extends IRepository<Entity> {
+  SearchOutput = SearchResult<E, Filter>,
+> extends IRepository<E> {
   sortableFields: string[];
   search(props: SearchInput): Promise<SearchOutput>;
 }

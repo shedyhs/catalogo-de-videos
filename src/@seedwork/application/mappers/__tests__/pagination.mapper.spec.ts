@@ -1,4 +1,4 @@
-import { SearchResult } from '../../../domain/repositories/searchable-repository.contract';
+import { SearchResult } from '@seedwork/domain/repositories/searchable-repository.contract';
 import { PaginationMapper } from '../pagination.mapper';
 
 describe('PaginationMapper Unit Test', () => {

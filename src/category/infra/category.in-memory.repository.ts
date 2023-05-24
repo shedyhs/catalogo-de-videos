@@ -1,7 +1,7 @@
+import { InMemorySearchableRepository } from '@seedwork/domain/repositories/in-memory-searchable.repository';
+import { SortDirection } from '@seedwork/domain/repositories/searchable-repository.contract';
 import { Category } from 'category/domain/entities/category';
 import { CategoryRepository } from 'category/domain/repositories/category.repository';
-import { InMemorySearchableRepository } from '../../@seedwork/domain/repositories/in-memory-searchable.repository';
-import { SortDirection } from '../../@seedwork/domain/repositories/searchable-repository.contract';
 
 export class CategoryInMemoryRepository
   extends InMemorySearchableRepository<Category>

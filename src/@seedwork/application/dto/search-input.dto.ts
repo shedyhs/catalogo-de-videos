@@ -1,4 +1,4 @@
-import { SortDirection } from '../../domain/repositories/searchable-repository.contract';
+import { SortDirection } from '@seedwork/domain/repositories/searchable-repository.contract';
 
 export type SearchInputDto<Filter = string> = {
   page?: number;

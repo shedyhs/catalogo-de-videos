@@ -1,4 +1,4 @@
-import { Category } from '../../../domain/entities/category';
+import { Category } from 'category/domain/entities/category';
 import { CategoryMapper } from '../category.mapper';
 
 describe('CategoryMapper Unit Test', () => {

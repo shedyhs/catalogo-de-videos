@@ -1,4 +1,4 @@
-import { Category } from '../../domain/entities/category';
+import { Category } from 'category/domain/entities/category';
 import { CategoryOutput } from '../dto/category-output';
 
 export class CategoryMapper {
