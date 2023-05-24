@@ -91,7 +91,10 @@ export type SearchResultProps<Entity extends AbstractEntity, Filter> = {
   sort_dir: SortDirection | null;
   filter: Filter | null;
 };
-export class SearchResult<Entity extends AbstractEntity, Filter = string> {
+export class SearchResult<
+  Entity extends AbstractEntity = AbstractEntity,
+  Filter = string,
+> {
   readonly items: Entity[];
   readonly total: number;
   readonly current_page: number;
