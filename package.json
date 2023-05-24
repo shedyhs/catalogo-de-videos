@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx",
     "test": "jest",
+    "tsc:check": "tsc --noEmit",
     "test:dev": "jest --watchAll",
     "test:cov": "jest --coverage"
   },
