@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import { Entity } from '../../entities/entity';
-import { InMemorySearchableRepository } from '../in-memory.repository';
-import { SearchParams, SearchResult } from '../repository.contract';
+import { InMemorySearchableRepository } from '../in-memory-searchable.repository';
+import { SearchParams, SearchResult } from '../searchable-repository.contract';
 
 type StubEntityProps = {
   name: string;

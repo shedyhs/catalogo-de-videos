@@ -66,3 +66,7 @@ export class Category extends Entity<CategoryProperties> {
     return this.props.updated_at;
   }
 }
+
+const category = new Category({ name: 'aaaa' });
+
+category.toJSON();

@@ -1,22 +1,21 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable no-shadow */
-import { Category } from 'category/domain/entities/category';
 import {
   SearchParams as DefaultSearchParams,
   SearchResult as DefaultSearchResult,
-  SearchableRepositoryInterface,
-} from '../../../@seedwork/domain/repositories/repository.contract';
+  ISearchableRepository,
+} from '@seedwork/domain/repositories/searchable-repository.contract';
+import { Category } from 'category/domain/entities/category';
 
 export namespace CategoryRepository {
   export type Filter = string;
-
   export class SearchParams extends DefaultSearchParams<Filter> {}
-
   export class SearchResult extends DefaultSearchResult<Category, Filter> {}
-
-  export type Repository = SearchableRepositoryInterface<
-    Category,
-    Filter,
-    SearchParams,
-    SearchResult
-  >;
+  export interface Repository
+    extends ISearchableRepository<
+      Category,
+      Filter,
+      SearchParams,
+      SearchResult
+    > {}
 }
