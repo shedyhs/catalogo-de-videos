@@ -4,13 +4,13 @@
           "syntax": "typescript",
           "decorators": true
       },
-      "baseUrl": ".",
+      "baseUrl": "./src",
       "paths": {
           "@seedwork/*": [
-              "./src/@seedwork/*"
+              "./@seedwork/*"
           ],
           "category/*": [
-              "./src/category/*"
+              "./category/*"
           ]
       }
   }
