@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "imports": {
+    "@seedwork/*": "./dist/@seedwork/*.js"
+  },
+  "_moduleAliases": {
+    "@seedwork": "./src/@seedwork",
+    "category": "./src/category"
+  },
   "scripts": {
     "dev": "tsx",
     "test": "jest",
@@ -21,6 +28,7 @@
     "@types/node": "^18.16.3",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "create-ts-index": "^1.14.0",
     "eslint": "^8.39.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
@@ -29,10 +37,12 @@
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^29.5.0",
     "ts-node": "^10.9.1",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "module-alias": "^2.2.2"
   }
 }
