@@ -7,6 +7,7 @@
     "prisma.prisma",
     "orta.vscode-jest",
     "oderwat.indent-rainbow",
-    "yoavbls.pretty-ts-errors"
+    "yoavbls.pretty-ts-errors",
+    "humao.rest-client"
   ]
 }

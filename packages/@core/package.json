@@ -7,6 +7,14 @@
     "@seedwork/*": "./dist/@seedwork/index.js",
     "category/*": "./dist/category/index.js"
   },
+  "exports": {
+    "./category/domain": "./dist/category/domain/index.js",
+    "./category/application": "./dist/category/application/index.js",
+    "./category/infra": "./dist/category/infra/index.js",
+
+    "./@seedwork/application": "./dist/@seedwork/application/index.js",
+    "./@seedwork/domain": "./dist/@seedwork/domain/index.js"
+  },
   "_moduleAliases": {
     "@seedwork": "./src/@seedwork",
     "category": "./src/category"
