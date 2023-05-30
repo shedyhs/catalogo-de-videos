@@ -3,7 +3,9 @@ version: '3'
 services:
   app:
     container_name: catalogo-video
-    build: 
+    build:
       dockerfile: Dockerfile
     volumes:
       - .:/home/node/app
+    ports:
+      - 3000:3000

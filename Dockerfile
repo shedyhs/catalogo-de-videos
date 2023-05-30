@@ -3,7 +3,7 @@ FROM node:lts-slim
 
 WORKDIR /home/node/app
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm @nestjs/cli@9.5.0
 
 RUN apt-get update && \
     apt-get install -y \
