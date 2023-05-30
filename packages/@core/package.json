@@ -12,6 +12,7 @@
     "category": "./src/category"
   },
   "scripts": {
+    "build": "tsup src",
     "dev": "tsx",
     "test": "jest",
     "tsc:check": "tsc --noEmit",

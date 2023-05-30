@@ -8,4 +8,5 @@ export default defineConfig({
   clean: true,
   treeshake: 'safest',
   dts: true,
+  tsconfig: './tsconfig.json',
 });

@@ -2,7 +2,11 @@ lockfileVersion: '6.0'
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      module-alias:
+        specifier: ^2.2.2
+        version: 2.2.2
 
   packages/@core:
     dependencies:
