@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "imports": {
-    "@seedwork/*": "./dist/@seedwork/*.js"
+    "@seedwork/*": "./dist/@seedwork/index.js",
+    "category/*": "./dist/category/index.js"
   },
   "_moduleAliases": {
     "@seedwork": "./src/@seedwork",

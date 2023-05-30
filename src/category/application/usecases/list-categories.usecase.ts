@@ -1,7 +1,7 @@
 import { PaginationOutput } from '@seedwork/application/dto/pagination-output.dto';
 import { SearchInputDto } from '@seedwork/application/dto/search-input.dto';
 import { PaginationMapper } from '@seedwork/application/mappers/pagination.mapper';
-import { UseCase } from '@seedwork/application/usecase';
+import { UseCase } from '@seedwork/application/usecase/usecase';
 import { CategoryRepository } from 'category/domain/repositories/category.repository';
 import { CategoryOutput } from '../dto/category-output';
 import { CategoryMapper } from '../mappers/category.mapper';

@@ -1,4 +1,4 @@
-import { UseCase } from '@seedwork/application/usecase';
+import { UseCase } from '@seedwork/application/usecase/usecase';
 import { Category } from 'category/domain/entities/category';
 import { CategoryRepository } from 'category/domain/repositories/category.repository';
 import { CategoryOutput } from '../dto/category-output';

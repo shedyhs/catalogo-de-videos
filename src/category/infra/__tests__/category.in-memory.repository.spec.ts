@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
 
-import { Category } from 'category/domain/entities/category';
+import { Category } from 'category/domain';
 import { CategoryInMemoryRepository } from '../category.in-memory.repository';
 
 describe('CategoryInMemoryRepository Unit Test', () => {
